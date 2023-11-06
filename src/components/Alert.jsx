@@ -1,9 +1,9 @@
 import React from "react";
 
-const Alert = ({type,  mensaje }) => {
+const Alert = ({ mensaje }) => {
   return (
-    <div className="alert alert-${type} color" >
-      {mensaje}
+    <div className="alert" >
+      {mensaje && <p>{mensaje}</p>}
     </div>
   );
 };

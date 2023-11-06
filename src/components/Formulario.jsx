@@ -21,25 +21,23 @@ const Formulario = ({agregarCol}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (nombre === "" || email==="" || edad === "" || cargo === ""  || tel === "" ) {
-            alert('Todos los campos son obligatorios');
-            return;
-        }   
-        const nuevoCol = {
-            nombre,
-            email,
-            edad: parseInt(edad),
-            cargo,
-            tel: parseInt(tel),
-        };
-        agregarCol(nuevoCol);
-        setNombre('');
-        setEmail('');
-        setEdad('');
-        setCargo('');
-        setTel('');
+            alert('Todos los campos son obligatorios');  
+        }else{
+            const nuevoCol = {
+                nombre,
+                email,
+                edad,
+                cargo,
+                tel,
+            };
+            agregarCol(nuevoCol);
+            setNombre('');
+            setEmail('');
+            setEdad('');
+            setCargo('');
+            setTel('');
+        }
     };
-
-
     return (
     <>
     <h1>Agregar colaborador</h1>

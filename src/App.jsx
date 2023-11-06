@@ -6,24 +6,29 @@ import Alert from './components/Alert';
 import Formulario from './components/Formulario';
 import Listado from "./components/Listado";
 import listaInicial from './components/listaInicial';
+import Buscar from './components/Buscar';
 
 
 function App() {
-  // const [mensaje, setMensaje] =useState('');
   const [colaboradores, setColaboradores] = useState(listaInicial);
+  const [mensaje, setMensaje] = useState('');
 
   
   const agregarColaborador  = (nuevoCol) =>{
-    setColaboradores([...colaboradores, nuevoCol]);
-    console.log(colaboradores);
+    if (nuevoCol.nombre === '' || nuevoCol.email === '' || nuevoCol.edad === '' || nuevoCol.cargo ==='' || nuevoCol.tel === ''){
+      setMensaje('Los cambios no deben estar vacios');
+    }else{
+      setColaboradores([...colaboradores, nuevoCol]);
+      setMensaje('Nuevo colaborador Agregado')
+    }
   };
 
   return (
     <>
+    <Buscar colaborador={colaboradores} setColaboradores ={setColaboradores}/>
     <Listado colaborador={colaboradores} />
-    {/* <Formulario setMensaje={setMensaje} />
-    {mensaje && <Alert mensaje={mensaje} />}   */}
     <Formulario agregarCol={agregarColaborador}/>
+    <Alert mensaje = {mensaje}/>
 
     </>
   )

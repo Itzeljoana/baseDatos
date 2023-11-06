@@ -5,8 +5,6 @@ import listaInicial from './listaInicial';
 const Listado = ({ colaborador  }) => {
     return (
       <div>
-        <h2>Lista de Colaboradores</h2>
-        <input placeholder="Buscar a un colaborador" />
         <Table striped bordered hover>
           <thead>
             <tr>
